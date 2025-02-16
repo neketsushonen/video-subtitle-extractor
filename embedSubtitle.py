@@ -13,7 +13,7 @@ for file_name in os.listdir(input_directory):
         # Crear el nombre del archivo .srt_spanish correspondiente
         subtitle_file = os.path.join(input_directory, file_name.replace('.mp4', '.srt_spanish'))
         output_file = os.path.join(output_directory, file_name.replace('.mp4', '_spanish.mp4'))
-        
+       
         # Si existe el archivo .srt_spanish, generar el archivo mp4 con los subtítulos incrustados
         if os.path.exists(subtitle_file) and not os.path.exists(output_file):
             subtitle_file_escaped = subtitle_file.replace(" ", "\ ").replace("[", r"\[").replace("]", r"\]")
@@ -22,7 +22,7 @@ for file_name in os.listdir(input_directory):
             ffmpeg_command = [
                 'ffmpeg',
                 '-i', video_file,  # No es necesario escapar aquí
-                '-vf', f"subtitles={subtitle_file_escaped}:force_style='Fontsize=35,PrimaryColour=&H03fcff&,OutlineColour=&HFFFFFFFF,BorderStyle=4,BackColour=&H44000000,Outline=6,Shadow=0,MarginV=31'",
+                '-vf', f"subtitles={subtitle_file_escaped}:force_style='Fontsize=35,PrimaryColour=&H03fcff&,OutlineColour=&HFFFFFFFF,BorderStyle=4,BackColour=&H44000000,Outline=6,Shadow=0,MarginV=1'",
                 #'-vf', f"subtitles={subtitle_file_escaped}:force_style='BackColour=&HA0000000,BorderStyle=1,Fontsize=35,FontName=Arial,PrimaryColour=&H03fcff&,MarginV=1'",
                 '-c:a', 'copy',
                 output_file,
