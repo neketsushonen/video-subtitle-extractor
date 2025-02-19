@@ -66,9 +66,9 @@ def traducir_subtitulos(frames):
     frames_traducidos = ""
     
     # Traducir en bloques de 80 frames
-    for i in range(0, len(frames), 40):
+    for i in range(0, len(frames), 50):
         texto_concatenado = ""  # Reiniciar texto_concatenado por cada bloque
-        bloque = frames[i:i+40]
+        bloque = frames[i:i+50]
         
         for frame in bloque:
             texto_concatenado = f"{texto_concatenado}\n{frame[0]}\n{frame[1]} --> {frame[2]}\n{frame[3]}" 
@@ -88,7 +88,7 @@ def guardar_srt_traducido(frames_traducidos, ruta_salida):
 
 # Buscar todos los archivos .srt en el directorio de entrada
 for file_name in os.listdir(input_directory):
-    if file_name.endswith('.mp4'):
+    if file_name.endswith('.mp4') and not file_name.endswith('_spanish.mp4'):
         srt_file = os.path.join(input_directory, file_name.replace('.mp4', '.srt'))
         subtitle_file = os.path.join(input_directory, file_name.replace('.mp4', '_spanish.srt'))
         if not os.path.exists(subtitle_file):

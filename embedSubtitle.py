@@ -2,12 +2,12 @@ import subprocess
 import os
 
 # Definir las rutas de los directorios y archivos
-input_directory = '/Users/chunhaulai/Documents/workspace-personal/video-subtitle-extractor/mp4/廉'
-output_directory = '/Users/chunhaulai/Documents/workspace-personal/video-subtitle-extractor/mp4/廉'
+input_directory = '/Users/chunhaulai/Documents/workspace-personal/video-subtitle-extractor/mp4/信'
+output_directory = '/Users/chunhaulai/Documents/workspace-personal/video-subtitle-extractor/mp4/信'
 
 # Buscar todos los archivos .mp4 en el directorio de entrada
 for file_name in os.listdir(input_directory):
-    if file_name.endswith('.mp4'):
+    if file_name.endswith('.mp4') and not file_name.endswith('_spanish.mp4'):
         video_file = os.path.join(input_directory, file_name)
         
         # Crear el nombre del archivo .srt_spanish correspondiente
