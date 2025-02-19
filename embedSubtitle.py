@@ -2,8 +2,8 @@ import subprocess
 import os
 
 # Definir las rutas de los directorios y archivos
-input_directory = '/Users/chunhaulai/Documents/workspace-personal/video-subtitle-extractor/downloads'
-output_directory = '/Users/chunhaulai/Documents/workspace-personal/video-subtitle-extractor/downloads'
+input_directory = '/Users/chunhaulai/Documents/workspace-personal/video-subtitle-extractor/mp4/廉'
+output_directory = '/Users/chunhaulai/Documents/workspace-personal/video-subtitle-extractor/mp4/廉'
 
 # Buscar todos los archivos .mp4 en el directorio de entrada
 for file_name in os.listdir(input_directory):
@@ -11,13 +11,13 @@ for file_name in os.listdir(input_directory):
         video_file = os.path.join(input_directory, file_name)
         
         # Crear el nombre del archivo .srt_spanish correspondiente
-        subtitle_file = os.path.join(input_directory, file_name.replace('.mp4', '.srt_spanish'))
+        subtitle_file = os.path.join(input_directory, file_name.replace('.mp4', '_spanish.srt'))
         output_file = os.path.join(output_directory, file_name.replace('.mp4', '_spanish.mp4'))
        
         # Si existe el archivo .srt_spanish, generar el archivo mp4 con los subtítulos incrustados
         if os.path.exists(subtitle_file) and not os.path.exists(output_file):
             subtitle_file_escaped = subtitle_file.replace(" ", "\ ").replace("[", r"\[").replace("]", r"\]")
-
+            
             # Comando para incrustar subtítulos (usando las rutas originales)
             ffmpeg_command = [
                 'ffmpeg',
