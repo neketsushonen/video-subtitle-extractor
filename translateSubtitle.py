@@ -15,8 +15,8 @@ client = OpenAI(
 
 
 # Definir las rutas de los directorios y archivos
-input_directory = '/Users/chunhaulai/Documents/workspace-personal/video-subtitle-extractor/mp4/信'
-output_directory = '/Users/chunhaulai/Documents/workspace-personal/video-subtitle-extractor/mp4/信'
+input_directory = '/Users/chunhaulai/Documents/workspace-personal/video-subtitle-extractor/mp4/孝'
+output_directory = '/Users/chunhaulai/Documents/workspace-personal/video-subtitle-extractor/mp4/孝'
 
 
 # Función para leer el archivo .srt y separar los subtítulos en bloques
@@ -44,7 +44,7 @@ def traducir_subtitulos_lenguaje(texto_concatenado):
     try:
         # Llamada a la API de OpenAI para obtener la traducción
         chat_completion = client.chat.completions.create(
-            model="meta-llama/Llama-3-70b-chat-hf",
+            model="gpt-3.5-turbo",
             messages=messages
         )
         
